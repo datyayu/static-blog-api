@@ -27,8 +27,7 @@ module.exports = function mdToObject(filepath) {
     }, {})
 
   const postMDContent = fileContent.replace(/\[\/\/\]\: \# \(.*\)/g, '').trim()
-
-  const htmlContent = converter.makeHtml(postMDContent).replace('\n', '')
+  const htmlContent = converter.makeHtml(postMDContent)
 
   objectData.html = htmlContent
 
