@@ -1,0 +1,5 @@
+api/**/*
+markdown/**/*
+node_modules
+.vs_code
+.DS_Store
