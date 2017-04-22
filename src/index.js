@@ -8,13 +8,15 @@ const creators = require('./json-creators')
 
 
 /* PATHS */
-const baseDir = process.argv[2]
-if (!baseDir) throw new Error('A base directory must be specified.')
+const inputDir = process.argv[2]
+if (!inputDir) throw new Error('A base directory must be specified.')
 
-const apiDir = path.resolve(baseDir, 'api')
+const outputDir = process.argv[3]
+if (!outputDir) throw new Error('An output directory must be specified.')
+
+const apiDir = path.resolve(outputDir, 'api')
 const apiPostsDir = path.resolve(apiDir, 'posts')
-const apiTagsDir = path.resolve(apiDir, 'tags')
-const markdownPostsDir = path.resolve(baseDir, 'posts')
+const apiTagsDir = path.resolve(apiDir, 'tags'))
 
 
 // Create dirs.
@@ -23,10 +25,10 @@ if (!fs.existsSync(apiDir))
 
 
 /* Get filenames */
-const postsMdFiles = fs.readdirSync(markdownPostsDir)
+const postsMdFiles = fs.readdirSync(inputDir)
 
 const postsData = postsMdFiles.map(filename => {
-  const filePath = path.resolve(markdownPostsDir, filename)
+  const filePath = path.resolve(inputDir, filename)
   const fileDataObject = mdToObject(filePath)
 
   if (!fileDataObject.url && !fileDataObject.title) {
