@@ -8,7 +8,9 @@ const creators = require('./json-creators')
 
 
 /* PATHS */
-const baseDir = path.resolve(__dirname, '..')
+const baseDir = process.argv[2]
+if (!baseDir) throw new Error('A base directory must be specified.')
+
 const apiDir = path.resolve(baseDir, 'api')
 const apiPostsDir = path.resolve(apiDir, 'posts')
 const apiTagsDir = path.resolve(apiDir, 'tags')
