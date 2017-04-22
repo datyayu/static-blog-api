@@ -16,7 +16,7 @@ if (!outputDir) throw new Error('An output directory must be specified.')
 
 const apiDir = path.resolve(outputDir, 'api')
 const apiPostsDir = path.resolve(apiDir, 'posts')
-const apiTagsDir = path.resolve(apiDir, 'tags'))
+const apiTagsDir = path.resolve(apiDir, 'tags')
 
 
 // Create dirs.
