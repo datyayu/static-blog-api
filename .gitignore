@@ -1,5 +1,5 @@
-api/**/*
-markdown/**/*
+api
+posts
 node_modules
 .vs_code
 .DS_Store

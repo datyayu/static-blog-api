@@ -20,7 +20,8 @@ module.exports = function createPostsPagesJSON (posts, dir) {
 
     const apiFileName = `${page+1}.json`
     const apiFilePath = path.resolve(pagesDir, apiFileName)
-    const jsonContent = JSON.stringify({ posts: pageChunck }, null, 4)
+    const fileContent = { page: page+1, totalPosts: posts.length, posts: pageChunck }
+    const jsonContent = JSON.stringify(fileContent, null, 4)
 
     fs.writeFileSync(apiFilePath, jsonContent, 'utf-8')
     console.log(apiFileName)

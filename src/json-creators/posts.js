@@ -9,7 +9,7 @@ module.exports = function createPostsJSON (posts, dir) {
     fs.mkdirSync(dir)
 
   posts.forEach(post => {
-    const apiFileName = (post.url || `${post.id}-${post.title}`).trim()
+    const apiFileName = post.url
     const apiFilePath = path.resolve(dir, `${apiFileName}.json`)
     const jsonContent = JSON.stringify(post, null, 4)
 

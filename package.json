@@ -16,5 +16,9 @@
 
   "dependencies": {
     "showdown": "^1.6.4"
+  },
+
+  "bin": {
+    "md-to-api": "src/index.js"
   }
 }

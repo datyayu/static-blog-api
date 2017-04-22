@@ -30,6 +30,9 @@ module.exports = function mdToObject(filepath) {
   const htmlContent = converter.makeHtml(postMDContent)
 
   objectData.html = htmlContent
+  objectData.id = parseInt(objectData.id)
+  objectData.url = (objectData.url || `${objectData.id}-${objectData.title}`).trim()
+  objectData.tags = (objectData.tags || '').split(',').map(tag => tag.trim())
 
   return objectData
 }

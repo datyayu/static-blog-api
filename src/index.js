@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const path = require('path')
 const mdToObject = require('./mdToObject')
@@ -10,8 +12,7 @@ const baseDir = path.resolve(__dirname, '..')
 const apiDir = path.resolve(baseDir, 'api')
 const apiPostsDir = path.resolve(apiDir, 'posts')
 const apiTagsDir = path.resolve(apiDir, 'tags')
-const markdownDir = path.resolve(baseDir, 'markdown')
-const markdownPostsDir = path.resolve(markdownDir, 'posts')
+const markdownPostsDir = path.resolve(baseDir, 'posts')
 
 
 // Create dirs.
@@ -32,6 +33,10 @@ const postsData = postsMdFiles.map(filename => {
 
   if (!fileDataObject.id) {
     throw new Error(`[MD-2-API] Error while parsing ${filename}: An 'id' property must be specified inside the markdown file.`)
+  }
+
+  if (!fileDataObject.date) {
+    throw new Error(`[MD-2-API] Error while parsing "${filename}": A 'date' property must be specified inside the markdown file.`)
   }
 
   return fileDataObject
