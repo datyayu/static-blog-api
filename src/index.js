@@ -46,11 +46,13 @@ const postsData = postsMdFiles.map(filename => {
   return fileDataObject
 })
 
-const tagsData = postToTags(postsData)
+const sortedPostsData = postsData.reverse()
+
+const tagsData = postToTags(sortedPostsData)
 
 /* Write posts */
-creators.createPostsJSON(postsData, apiPostsDir)
-creators.createPostsPagesJSON(postsData, apiPostsDir)
+creators.createPostsJSON(sortedPostsData, apiPostsDir)
+creators.createPostsPagesJSON(sortedPostsData, apiPostsDir)
 
 creators.createTagsJSON(tagsData, apiTagsDir)
 creators.createTagsPagesJSON(tagsData, apiTagsDir)

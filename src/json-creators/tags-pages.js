@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 5
 
 
 function createPagesJSONForTag (posts, tagname, dir) {
@@ -14,7 +14,12 @@ function createPagesJSONForTag (posts, tagname, dir) {
 
     const apiFileName = `${tagname}-${page+1}.json`
     const apiFilePath = path.resolve(dir, apiFileName)
-    const fileContent = { id: tagname, page: page+1, posts: pageChunck }
+    const fileContent = {
+      id: tagname,
+      page: page+1,
+      totalPosts: posts.length,
+      posts: pageChunck
+    }
     const jsonContent = JSON.stringify(fileContent, null, 4)
 
     fs.writeFileSync(apiFilePath, jsonContent, 'utf-8')

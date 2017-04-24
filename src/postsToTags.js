@@ -1,4 +1,4 @@
-  // Map posts data to tags
+// Map posts data to tags
 module.exports = function postTags (posts) {
   return posts.reduce((obj, post) => {
     const postTags = post.tags
